@@ -1,0 +1,43 @@
+# fly.toml app configuration file generated for minecraft-mc on 2024-07-18T19:26:58+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'factorio-mc'
+primary_region = 'lhr'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
+
+[build]
+  image = 'factoriotools/factorio:latest'
+
+[env]
+  AUTOSTOP_PKILL_USE_SUDO = 'TRUE'
+  AUTOSTOP_TIMEOUT_EST = '120'
+  AUTOSTOP_TIMEOUT_INIT = '120'
+  ENABLE_AUTOSTOP = 'TRUE'
+  EULA = 'TRUE'
+  MEMORY = '1G'
+  PRIMARY_REGION = 'lhr'
+
+[[mounts]]
+  source = 'factorio_data'
+  destination = '/factorio'
+  processes = ['app']
+
+[[services]]
+  protocol = 'udp'
+  internal_port = 34197
+
+  [[services.ports]]
+    port = 34197
+
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 4
