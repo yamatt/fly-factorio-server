@@ -11,12 +11,6 @@ kill_timeout = '5s'
   image = 'factoriotools/factorio:latest'
 
 [env]
-  AUTOSTOP_PKILL_USE_SUDO = 'TRUE'
-  AUTOSTOP_TIMEOUT_EST = '120'
-  AUTOSTOP_TIMEOUT_INIT = '120'
-  ENABLE_AUTOSTOP = 'TRUE'
-  EULA = 'TRUE'
-  MEMORY = '1G'
   PRIMARY_REGION = 'lhr'
 
 [[mounts]]
