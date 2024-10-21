@@ -1,9 +1,8 @@
-# fly.toml app configuration file generated for minecraft-mc on 2024-07-18T19:26:58+01:00
+# fly.toml app configuration file generated for factorio-mc on 2024-10-21T19:21:41+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'factorio-mc'
 primary_region = 'lhr'
 kill_signal = 'SIGINT'
 kill_timeout = '5s'
