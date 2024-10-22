@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for factorio-mc on 2024-10-21T19:21:41+01:00
+# fly.toml app configuration file generated for factorio-mc on 2024-10-21T21:09:14+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -30,13 +30,6 @@ kill_timeout = '5s'
     type = 'connections'
     hard_limit = 25
     soft_limit = 20
-
-[[services]]
-  internal_port = "27015"
-  protocol = "tcp"
-
-  [[services.ports]]
-    port = "27015"
 
 [[vm]]
   memory = '2gb'
