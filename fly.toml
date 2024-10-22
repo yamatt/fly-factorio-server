@@ -23,6 +23,7 @@ kill_timeout = '5s'
   internal_port = "34197"
 
   [[services.ports]]
+    handlers = []
     port = "34197"
 
   [services.concurrency]
