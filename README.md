@@ -1,18 +1,18 @@
 # Fly Factorio Server
 
-This is a scale to zero Factorio server in fly.io using GitHub Actions and without needing to use Terraform and have to manage state.
+This is a Factorio server in fly.io using GitHub Actions and without needing to use Terraform and have to manage state.
 
-When the server is not used, it switches off, reducing costs. Note that you still need to reserve an IP in fly.io which will have a monthly cost.
+Unfortunately this cannot scale to zero since Factorio uses UDP, and fly.io does not start the machine on UDP traffic. Therefore this server has to run all the time.
 
 ## Setup
 
 You will need a fly.io account, then install and setup the [fly.io CLI](https://fly.io/docs/flyctl/install/) then run:
 
 ```bash
-flyctl launch --name <factorio server>
+fly launch --remote-only --copy-config --name <factorio server>
 ```
 
-Where `<factorio server>` is the name of your minecraft server
+Where `<factorio server>` is the globally unique name of your minecraft server in Fly.io
 
 ## Licence
 

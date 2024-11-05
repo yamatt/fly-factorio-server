@@ -1,16 +1,19 @@
-# fly.toml app configuration file generated for factorio-mc on 2024-10-21T21:09:14+01:00
+# fly.toml app configuration file generated for factorio-mc on 2024-11-05T20:36:51Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
+app = 'factorio-mc'
 primary_region = 'lhr'
 kill_signal = 'SIGINT'
 kill_timeout = '5s'
 
 [build]
-  image = 'factoriotools/factorio:latest'
+  image = 'factoriotools/factorio:2.0.14'
 
 [env]
+  BIND = 'fly-global-services'
+  DLC_SPACE_AGE = 'false'
   PRIMARY_REGION = 'lhr'
 
 [[mounts]]
@@ -20,16 +23,11 @@ kill_timeout = '5s'
 
 [[services]]
   protocol = 'udp'
-  internal_port = "34197"
+  internal_port = 34197
+  min_machines_running = 1
 
   [[services.ports]]
-    handlers = []
-    port = "34197"
-
-  [services.concurrency]
-    type = 'connections'
-    hard_limit = 25
-    soft_limit = 20
+    port = 34197
 
 [[vm]]
   memory = '2gb'
